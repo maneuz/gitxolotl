@@ -1,0 +1,63 @@
+name: Gitxólotl
+description: Un ajolote en pixel art que vive de tu actividad en GitHub.
+author: maneuz
+branding:
+  icon: droplet
+  color: purple
+
+inputs:
+  usuario:
+    description: Cuenta de GitHub a dibujar.
+    required: false
+    default: ${{ github.repository_owner }}
+  token:
+    description: >
+      Token para leer la API. El GITHUB_TOKEN del workflow ve la actividad pública;
+      un token personal de solo lectura también cuenta los lenguajes de tus repos privados.
+    required: false
+    default: ${{ github.token }}
+  morph:
+    description: leucistico | salvaje | dorado | melanoide | cobre
+    required: false
+    default: leucistico
+  cielo:
+    description: auto | dia | atardecer | noche
+    required: false
+    default: auto
+  zona-horaria:
+    description: Zona horaria IANA para decidir qué día fue "ayer".
+    required: false
+    default: America/Mexico_City
+  excluir-lenguajes:
+    description: Lenguajes separados por coma que no cuentan para las branquias (ej. HTML,CSS).
+    required: false
+    default: ""
+  salida:
+    description: Ruta del SVG dentro del repo.
+    required: false
+    default: ajolote/ajolote.svg
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v6
+      with:
+        node-version: 24
+    - name: Dibujar el ajolote
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ inputs.token }}
+        GX_USUARIO: ${{ inputs.usuario }}
+        GX_MORPH: ${{ inputs.morph }}
+        GX_CIELO: ${{ inputs.cielo }}
+        GX_ZONA: ${{ inputs.zona-horaria }}
+        GX_EXCLUIR: ${{ inputs.excluir-lenguajes }}
+        GX_SALIDA: ${{ inputs.salida }}
+      run: |
+        node "$GITHUB_ACTION_PATH/src/cli.ts" \
+          --usuario "$GX_USUARIO" \
+          --morph "$GX_MORPH" \
+          --cielo "$GX_CIELO" \
+          --zona "$GX_ZONA" \
+          --excluir "$GX_EXCLUIR" \
+          --salida "$GX_SALIDA"

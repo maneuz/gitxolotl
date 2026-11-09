@@ -1,0 +1,24 @@
+{
+  "name": "gitxolotl",
+  "version": "0.1.0",
+  "description": "Un ajolote en pixel art que vive de tu actividad en GitHub",
+  "type": "module",
+  "license": "MIT",
+  "author": "Victor Manuel Flores Guerrero",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "bin": {
+    "gitxolotl": "src/cli.ts"
+  },
+  "scripts": {
+    "ajolote": "node src/cli.ts",
+    "demo": "node src/cli.ts --demo demo",
+    "test": "node --test \"test/*.test.ts\"",
+    "typecheck": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.9.0"
+  }
+}

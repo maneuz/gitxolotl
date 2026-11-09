@@ -1,0 +1,45 @@
+# Copia este archivo a tu repo de perfil (maneuz/maneuz) como
+# .github/workflows/ajolote.yml y agrega al README.md:
+#
+#   <p align="center"><img src="ajolote/ajolote.svg" width="640" alt="Mi ajolote"></p>
+name: Ajolote
+
+on:
+  schedule:
+    # 06:17 UTC = 00:17 en Ciudad de México: juzga el día que acaba de terminar.
+    - cron: "17 6 * * *"
+  workflow_dispatch:
+  push:
+    paths: [.github/workflows/ajolote.yml]
+
+permissions:
+  contents: write
+
+concurrency: ajolote
+
+jobs:
+  ajolote:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: maneuz/gitxolotl@main
+        with:
+          morph: leucistico
+          # Opcional: para que cuenten tus repos privados, crea un token
+          # fine-grained de solo lectura y guárdalo como secreto GITXOLOTL_TOKEN.
+          # token: ${{ secrets.GITXOLOTL_TOKEN }}
+          # excluir-lenguajes: HTML,CSS
+
+      - name: Guardar el ajolote si cambió
+        shell: bash
+        run: |
+          git add ajolote/ajolote.svg
+          if git diff --cached --quiet; then
+            echo "El ajolote no cambió."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit --quiet --message "ajolote: dibujar el día"
+          git push --quiet

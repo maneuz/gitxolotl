@@ -1,0 +1,5 @@
+node_modules/
+demo/
+ajolote/
+*.log
+.DS_Store
