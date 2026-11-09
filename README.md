@@ -1,4 +1,4 @@
-# Gitxólotl 🦎
+# Gitxólotl 
 
 [![CI](https://github.com/maneuz/gitxolotl/actions/workflows/ci.yml/badge.svg)](https://github.com/maneuz/gitxolotl/actions/workflows/ci.yml)
 [![Licencia: MIT](https://img.shields.io/badge/licencia-MIT-blue.svg)](LICENSE)
