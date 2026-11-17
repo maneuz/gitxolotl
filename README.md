@@ -56,7 +56,7 @@ Cada noche se juzga el día que terminó. Gana la primera regla que se cumpla:
 ### Morphs
 
 Eliges la variante de color, como en los ajolotes reales: `leucistico` (rosa,
-default), `salvaje`, `dorado`, `melanoide` y `cobre`.
+default), `salvaje`, `dorado`, `melanoide`, `cobre` y `blanco`.
 
 <table>
   <tr>
@@ -66,6 +66,10 @@ default), `salvaje`, `dorado`, `melanoide` y `cobre`.
   <tr>
     <td><img src="docs/morph-melanoide.svg" width="320" alt="Melanoide"></td>
     <td><img src="docs/morph-cobre.svg" width="320" alt="Cobre"></td>
+  </tr>
+  <tr>
+    <td><img src="docs/morph-blanco.svg" width="320" alt="Blanco"></td>
+    <td></td>
   </tr>
 </table>
 
@@ -133,7 +137,7 @@ Se pasan en el bloque `with:` de la Action. Todas son opcionales.
 | --- | --- | --- |
 | `usuario` | Cuenta de GitHub a dibujar. | El dueño del repo (`github.repository_owner`) |
 | `token` | Token para leer la API. El `GITHUB_TOKEN` del workflow solo ve la actividad pública; mira [Si tu actividad es privada](#si-tu-actividad-es-privada). | `github.token` |
-| `morph` | Variante de color: `leucistico`, `salvaje`, `dorado`, `melanoide` o `cobre`. | `leucistico` |
+| `morph` | Variante de color: `leucistico`, `salvaje`, `dorado`, `melanoide`, `cobre` o `blanco`. | `leucistico` |
 | `cielo` | `auto`, `dia`, `atardecer` o `noche`. Con `auto` es de noche si el ajolote duerme o descansa, atardecer si se regenera y de día en los demás casos. | `auto` |
 | `zona-horaria` | Zona horaria IANA para decidir qué día fue "ayer". | `America/Mexico_City` |
 | `excluir-lenguajes` | Lenguajes, separados por coma, que no cuentan para las branquias (por ejemplo `HTML,CSS`). | vacío |

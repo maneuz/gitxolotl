@@ -103,6 +103,22 @@ export const MORPHS = {
     spots: "#8d5130",
     spotCount: 18,
   },
+  blanco: {
+    label: "Blanco",
+    outline: "#7b8496",
+    shade: "#d2d7e2",
+    base: "#f1f2f6",
+    light: "#ffffff",
+    fin: "#e6e9f0",
+    finEdge: "#b4bbcb",
+    mouth: "#b0808f",
+    eye: "#c8455b",
+    eyeShine: "#ffe3e8",
+    blush: "#f6c6d0",
+    gill: "#f09aab",
+    spots: null,
+    spotCount: 0,
+  },
 } satisfies Record<string, MorphPalette>;
 
 export type MorphName = keyof typeof MORPHS;

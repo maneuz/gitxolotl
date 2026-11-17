@@ -17,7 +17,7 @@ inputs:
     required: false
     default: ${{ github.token }}
   morph:
-    description: leucistico | salvaje | dorado | melanoide | cobre
+    description: leucistico | salvaje | dorado | melanoide | cobre | blanco
     required: false
     default: leucistico
   cielo:
